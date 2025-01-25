@@ -16,7 +16,7 @@ jobs:
           node-version: '23.6'
           cache: 'pnpm'
       - run: pnpm install
-      - run: pnpm run build-p
+      - run: pnpm run build --e2e
 
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps

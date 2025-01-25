@@ -18,7 +18,7 @@ jobs:
       - run: pnpm install
       - run: pnpm typecheck
       - run: pnpm test
-      - run: pnpm run build-p
+      - run: pnpm run build
 
       - name: Install uv
         uses: astral-sh/setup-uv@v3

@@ -26,8 +26,6 @@ export class Anki {
     await this.page.evaluate((html) => {
       e2eAnki.render(html);
     }, html);
-
-    await new Promise((resolve) => setTimeout(resolve, 500));
   }
 
   public async renderCard(

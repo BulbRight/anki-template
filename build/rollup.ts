@@ -30,7 +30,10 @@ import tailwindcss from 'tailwindcss';
 
 const packageJson = await readJson('./package.json');
 
-export async function rollupOptions(config: BuildConfig, dev?: boolean) {
+export async function rollupOptions(
+  config: BuildConfig,
+  { dev = false, e2e = false }: { dev?: boolean; e2e?: boolean } = {},
+) {
   async function buildInputOptions() {
     const i18nMap = await fs
       .readFile(
@@ -103,6 +106,18 @@ export async function rollupOptions(config: BuildConfig, dev?: boolean) {
             },
             minify: {
               compress: true,
+            },
+            experimental: {
+              plugins: e2e
+                ? []
+                : [
+                    [
+                      '@swc/plugin-react-remove-properties',
+                      {
+                        properties: ['^data-testid$'],
+                      },
+                    ],
+                  ],
             },
           },
           minify: true,

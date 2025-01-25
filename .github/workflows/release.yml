@@ -36,7 +36,7 @@ jobs:
 
       - name: Build templates
         if: steps.changesets.outputs.published == 'true'
-        run: pnpm run build-p
+        run: pnpm run build
 
       - name: Install uv
         if: steps.changesets.outputs.published == 'true'

@@ -21,6 +21,10 @@ const { values: args } = parseArgs({
       type: 'boolean',
       default: false,
     },
+    e2e: {
+      type: 'boolean',
+      default: false,
+    },
   },
 });
 
@@ -35,7 +39,10 @@ if (!args.dev) {
     configMatch(argConfig, config),
   )) {
     console.log('build', config);
-    const { inputOptions, outputOptions } = await rollupOptions(config);
+    const { inputOptions, outputOptions } = await rollupOptions(config, {
+      dev: false,
+      e2e: args.e2e ?? false,
+    });
     const bundle = await rollup(inputOptions);
     bundle.write(outputOptions);
     bundle.close();
@@ -50,7 +57,10 @@ if (!args.dev) {
       type_id: 0,
       deck_id: 0,
     },
-    true,
+    {
+      e2e: true,
+      dev: true,
+    },
   );
   const watcher = watch({
     ...inputOptions,
