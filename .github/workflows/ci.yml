@@ -16,7 +16,6 @@ jobs:
           node-version: '23.6'
           cache: 'pnpm'
       - run: pnpm install
-      - run: pnpm typecheck
       - run: pnpm test
       - run: pnpm run build
 

@@ -8,6 +8,7 @@ import { template } from 'lodash-es';
 
 declare const e2eAnki: {
   clean(): void;
+  flipToBack(): void;
   render(html: string): void;
 };
 
@@ -30,7 +31,6 @@ export class Anki {
 
   public async renderCard(
     build: BuildJson,
-    back?: boolean,
     extraFields: Partial<Record<(typeof BUILTIN_FIELDS)[number], string>> = {},
   ) {
     const fields = Object.assign(
@@ -42,14 +42,23 @@ export class Anki {
       extraFields,
     );
     const template = await readTemplate(build.config.name);
-    let html = renderTemplate(template.front, fields);
-    if (back) {
-      html = renderTemplate(template.back, {
-        ...fields,
-        FrontSide: html,
+    const frontHtml = renderTemplate(template.front, fields);
+    const backHtml = renderTemplate(template.back, {
+      ...fields,
+      FrontSide: frontHtml,
+    });
+    await this.render(frontHtml);
+    await this.page.evaluate((backHtml) => {
+      e2eAnki.flipToBack = () => {
+        e2eAnki.render(backHtml);
+      };
+    }, backHtml);
+
+    return async () => {
+      await this.page.evaluate(() => {
+        e2eAnki.flipToBack();
       });
-    }
-    await this.render(html);
+    };
   }
 
   public async clean() {

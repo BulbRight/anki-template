@@ -1,4 +1,5 @@
 import { Block } from '@/components/block';
+import { Button } from '@/components/button';
 import { useNavigate, Page } from '@/hooks/use-page';
 import * as t from 'at/i18n';
 import { entry } from 'at/options';
@@ -22,8 +23,7 @@ export default () => {
   return (
     <Block
       name={t.optionsPage}
-      action={t.back}
-      onAction={() => navigate(Page.Settings)}
+      action={<Button onClick={() => navigate(Page.Settings)}>{t.back}</Button>}
     >
       <div className="prose prose-sm prose-neutral dark:prose-invert">
         <p

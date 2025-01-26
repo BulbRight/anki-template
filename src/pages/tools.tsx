@@ -46,8 +46,9 @@ export default () => {
     <>
       <Block
         name={t.tool}
-        action={t.back}
-        onAction={() => navigate(Page.Settings)}
+        action={
+          <Button onClick={() => navigate(Page.Settings)}>{t.back}</Button>
+        }
       >
         {edit ? (
           <ToolEdit

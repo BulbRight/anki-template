@@ -9,10 +9,22 @@ export const Checkbox: FC<{
   title: string;
   subtitle?: ReactNode;
   disabled?: boolean;
-}> = ({ onChange, className, checked, title, subtitle, disabled }) => {
+  'data-testid'?: string;
+}> = ({
+  onChange,
+  className,
+  checked,
+  title,
+  subtitle,
+  disabled,
+  ...props
+}) => {
   const id = useId();
   return (
-    <div className={clsx('relative flex gap-x-3', className)}>
+    <div
+      className={clsx('relative flex gap-x-3', className)}
+      data-testid={props['data-testid']}
+    >
       <div className="flex h-6 items-center">
         <input
           id={id}

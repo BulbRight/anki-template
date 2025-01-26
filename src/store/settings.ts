@@ -18,7 +18,7 @@ export const hideQuestionTypeAtom = atomWithScopedStorage<boolean>(
   'hideQuestionType',
   false,
 );
-export const noScorllAtom = atomWithScopedStorage<boolean>('noScorll', true);
+export const noScrollAtom = atomWithScopedStorage<boolean>('noScroll', true);
 export const blurOptionsAtom = atomWithScopedStorage<boolean>(
   'blurOptions',
   false,

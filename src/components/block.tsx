@@ -1,4 +1,3 @@
-import { Button } from './button';
 import { ToolsContext } from '@/features/tools/context';
 import { selectionMenuAtom } from '@/store/settings';
 import clsx from 'clsx';
@@ -8,20 +7,19 @@ import { FC, PropsWithChildren, ReactNode } from 'react';
 export const Block: FC<
   PropsWithChildren & {
     name: ReactNode;
-    action?: string;
-    onAction?: () => void;
+    action?: ReactNode;
     className?: string;
     id?: string;
     enableTools?: boolean;
   }
-> = ({ children, className, name, id, enableTools, action, onAction }, ref) => {
+> = ({ children, className, name, id, enableTools, action }, ref) => {
   const prefSelectionMenu = useAtomValue(selectionMenuAtom);
 
   return (
     <div className={clsx('mb-6', className)} ref={ref} id={id}>
       <div className="mb-1 px-4 text-sm text-gray-500 flex justify-between">
         <span>{name}</span>
-        {action ? <Button onClick={onAction}>{action}</Button> : null}
+        {action ? action : null}
       </div>
       <div
         className={clsx(

@@ -1,12 +1,13 @@
 import { About } from './about';
 import { Block } from './block';
+import { Button } from './button';
 import { Dot } from './dot';
 import { TimerBlock } from './timer';
 import { useBack } from '@/hooks/use-back';
 import { useField } from '@/hooks/use-field';
 import { Page, PageContext } from '@/hooks/use-page';
 import { DEFAULT_PAGES } from '@/pages';
-import { biggerTextAtom, hideAboutAtom, noScorllAtom } from '@/store/settings';
+import { biggerTextAtom, hideAboutAtom, noScrollAtom } from '@/store/settings';
 import * as t from 'at/i18n';
 import { locale } from 'at/options';
 import { AnkiField } from 'at/virtual/field';
@@ -29,7 +30,7 @@ export const CardShell: FC<Props> = ({
 }) => {
   const prefHideAbout = useAtomValue(hideAboutAtom);
   const prefBiggerText = useAtomValue(biggerTextAtom);
-  const prefNoScroll = useAtomValue(noScorllAtom);
+  const prefNoScroll = useAtomValue(noScrollAtom);
   const [back] = useBack();
 
   const tags = useField('Tags')?.split(' ');
@@ -61,8 +62,14 @@ export const CardShell: FC<Props> = ({
                 ) : null}
               </span>
             }
-            action={t.templateSetting}
-            onAction={() => setPage(Page.Settings)}
+            action={
+              <Button
+                onClick={() => setPage(Page.Settings)}
+                data-testid="index:setting"
+              >
+                {t.templateSetting}
+              </Button>
+            }
             className="relative"
             enableTools
           >

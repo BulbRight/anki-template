@@ -1,4 +1,5 @@
 import { Block } from './block';
+import { Button } from './button';
 import { Input } from './input';
 import { hideTimerAtom } from '@/store/settings';
 import { atomWithScopedStorage } from '@/utils/storage';
@@ -73,8 +74,11 @@ export const TimerBlock = () => {
   return (
     <Block
       name={<span>{showSetting ? t.timerSetting : t.timer}</span>}
-      action={showSetting ? t.close : t.setting}
-      onAction={() => setShowSetting((prev) => !prev)}
+      action={
+        <Button onClick={() => setShowSetting((prev) => !prev)}>
+          {showSetting ? t.close : t.setting}
+        </Button>
+      }
     >
       {showSetting ? (
         <>

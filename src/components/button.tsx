@@ -5,6 +5,7 @@ interface ButtonProps {
   status?: 'normal' | 'danger';
   onClick?: () => void;
   className?: string;
+  'data-testid'?: string;
 }
 
 export const Button: FC<PropsWithChildren & ButtonProps> = ({
@@ -12,6 +13,7 @@ export const Button: FC<PropsWithChildren & ButtonProps> = ({
   onClick,
   children,
   className,
+  ...props
 }) => (
   <span
     className={clsx('cursor-pointer font-bold', className, {
@@ -19,6 +21,7 @@ export const Button: FC<PropsWithChildren & ButtonProps> = ({
       'text-red-500': status === 'danger',
     })}
     onClick={onClick}
+    data-testid={props['data-testid']}
   >
     {children}
   </span>

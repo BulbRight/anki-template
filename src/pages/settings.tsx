@@ -10,7 +10,7 @@ import {
   hideMcqAnswerAtom,
   hideQuestionTypeAtom,
   hideTimerAtom,
-  noScorllAtom,
+  noScrollAtom,
   randomOptionsAtom,
   selectionMenuAtom,
 } from '@/store/settings';
@@ -24,7 +24,7 @@ const CommonOptions: FC = () => {
   const [hideAbout, setHideAbout] = useAtom(hideAboutAtom);
   const [biggerText, setBiggerText] = useAtom(biggerTextAtom);
   const [hideTimer, setHideTimer] = useAtom(hideTimerAtom);
-  const [noScorll, setNoScorll] = useAtom(noScorllAtom);
+  const [noScorll, setNoScorll] = useAtom(noScrollAtom);
   const navigate = useNavigate();
 
   return (
@@ -44,22 +44,31 @@ const CommonOptions: FC = () => {
         }
         checked={selectionMenu}
         onChange={setSelectionMenu}
+        data-testid="setting:selectionMenu"
       />
       <Checkbox
         title={t.biggerText}
         checked={biggerText}
         onChange={setBiggerText}
+        data-testid="setting:biggerText"
       />
-      <Checkbox title={t.noScroll} checked={noScorll} onChange={setNoScorll} />
+      <Checkbox
+        title={t.noScroll}
+        checked={noScorll}
+        onChange={setNoScorll}
+        data-testid="setting:noScroll"
+      />
       <Checkbox
         title={t.hideTimer}
         checked={hideTimer}
         onChange={setHideTimer}
+        data-testid="setting:hideTimer"
       />
       <Checkbox
         title={t.hideAbout}
         checked={hideAbout}
         onChange={setHideAbout}
+        data-testid="setting:hideAbout"
       />
     </>
   );
@@ -83,23 +92,27 @@ if (entry === 'mcq' || entry === 'mcq_10') {
           checked={hideQuestionType}
           onChange={setHideQuestionType}
           subtitle={t.hideQuestionTypeDetail}
+          data-testid="setting:hideQuestionType"
         />
         <Checkbox
           title={t.randomOption}
           subtitle={t.randomOptionDetail}
           checked={randomOptions}
           onChange={setRandomOptions}
+          data-testid="setting:randomOptions"
         />
         <Checkbox
           title={t.blurOptions}
           subtitle={t.blurOptionsDetail}
           checked={blurOptions}
           onChange={setBlurOptions}
+          data-testid="setting:blurOptions"
         />
         <Checkbox
           title={t.hideMcqAnswer}
           checked={hideMcqAnswer}
           onChange={setHideMcqAnswer}
+          data-testid="setting:hideMcqAnswer"
         />
         <CommonOptions />
       </>
@@ -118,8 +131,7 @@ export default () => {
   return (
     <Block
       name={t.templateSetting}
-      action={t.back}
-      onAction={() => navigate(Page.Index)}
+      action={<Button onClick={() => navigate(Page.Index)}>{t.back}</Button>}
     >
       <div className="text-gray-500 dark:text-gray-400 text-sm mb-3">
         {t.optionsHint}
