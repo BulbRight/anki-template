@@ -45,6 +45,9 @@ export async function rollupOptions(
         fragment: 'Fragment',
         importSource: 'preact',
       },
+      moduleTypes: {
+        '.svg': 'dataurl',
+      },
       treeshake: true,
       plugins: [
         virtual({
