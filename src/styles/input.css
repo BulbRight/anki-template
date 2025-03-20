@@ -1,0 +1,13 @@
+@keyframes cloze-highlight {
+  0%,
+  100% {
+    @apply bg-transparent;
+  }
+  50% {
+    @apply bg-indigo-400;
+  }
+}
+
+.at-cloze-highlight {
+  animation: cloze-highlight 1s;
+}
