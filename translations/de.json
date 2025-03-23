@@ -10,7 +10,7 @@
   "about": "Über",
   "hideTimer": "Coutdown verbergen",
   "randomOption": "Zufällige Antworten",
-  "randomOptionDetail": "Die Antworten werden in zufälliger Reihenfolge angezeigt und nach dem Aufdecken wieder geordnet",
+  "randomOptionDetail": "Die Antworten werden in zufälliger Reihenfolge angezeigt",
   "selMenu": "Textauswahl Schnellaktionsmenü",
   "selMenuDetail": "Nachdem Text ausgewählt wurde, erscheint ein Schnellaktionsmenü, mit Optionen wie Google Suche und Google Übersetzer",
   "hideAbout": "“Über” ausblenden",
@@ -49,10 +49,10 @@
   "translate": "Übersetzen",
   "search": "Suchen",
   "explainFollowing": "Erkläre folgenden Inhalt: ",
-  "toolHelp": "<p>Each tool requires a URL to be set. For example, Google Search:</p><pre><code>https://www.google.com/search?q={q}</code></pre><p>When you select text and click the corresponding tool, the <code>{q}</code> in the link will be replaced with the selected text, and the browser will automatically navigate to the updated link.</p><p>Prefix text and suffix text refer to adding text before and after the selected text, which is then used as <code>{q}</code> for replacement.</p>",
+  "toolHelp": "<p>Für jedes Werkzeug muss ein Link hinterlegt werden. Beispielsweise, Google Suche:</p><pre><code>https://www.google.com/search?q={q}</code></pre><p>Wenn Text markiert wird und auf ein Werkzeug geklickt wird, wird das <code>{q}</code> im Link durch den markierten Text ersetzt und der Link automatisch im Browser geöffnet. </p><p> Der Prefix Text wird vor <code>{q}</code> und der Suffix Text wird nach <code>{q}</code> hinzugefügt.</p>",
   "optionsHint": "Wenn die Einstellungen nach dem Neustart von Anki verloren gehen oder du sie über mehrere Geräte synchronisieren möchtest, besuche ",
-  "optionsPage": "Options Configuration",
-  "optionsHelp": "Der folgende Inhalt kann ausgewählt und kopiert werden. Eine genauere Anleitung findet sich <a target=\"_blank\" href=\"https://template.ikkz.fun/docs/embed-options?from=anki\">hier</a>",
+  "optionsPage": "Optionen einbetten",
+  "optionsHelp": "Der folgende Inhalt kann markiert und kopiert werden. Eine genauere Anleitung findet sich <a target=\"_blank\" href=\"https://template.ikkz.fun/docs/embed-options?from=anki\">hier</a>",
   "cloze": "Cloze aktivieren",
   "clozeDetail": "Für genauere Informationen, siehe die Cloze Vorlagen Dokumentation"
 }
