@@ -18,25 +18,20 @@ interface ConfigItem {
 export const items: ConfigItem[] = [
   {
     key: 'entry',
-    len: 5,
+    len: 1,
     variants: [
       'mcq',
-      'tf',
-      'basic',
-      'mcq_10',
-      'match',
-      'cloze',
     ] as const satisfies (keyof typeof entries)[],
   },
   {
     key: 'locale',
-    len: 4,
-    variants: ['zh', 'en', 'ja'],
+    len: 2,
+    variants: ['en', 'de'],
   },
   {
     key: 'field',
-    len: 2,
-    variants: ['native', 'markdown'],
+    len: 1,
+    variants: ['native'],
   },
 ];
 
