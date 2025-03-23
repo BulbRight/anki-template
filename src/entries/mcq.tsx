@@ -97,7 +97,7 @@ export default () => {
         return 'none';
     }
   });
-
+/*
   const [parent] = useAutoAnimate();
   useEffect(() => {
     if (back) {
@@ -108,7 +108,7 @@ export default () => {
     }
     return doNothing;
   }, [back]);
-
+*/
   const note = useField('note');
   const isMultipleChoice = answers.length > 1;
 
